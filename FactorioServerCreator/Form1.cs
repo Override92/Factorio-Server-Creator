@@ -19,12 +19,12 @@ namespace FactorioServerCreator
 
         private void deleteServerBtn_Click(object sender, EventArgs e)
         {
-
+            serverListView.SelectedItems[0].Remove();
         }
 
         private void newServerBtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(servernameTextBox.Text))
+            if (!string.IsNullOrWhiteSpace(servernameTextBox.Text)&&!servernameTextBox.Text.Equals("Enter Servername..."))
             {
                 serverListView.Items.Add(servernameTextBox.Text);
             }
@@ -45,7 +45,16 @@ namespace FactorioServerCreator
         private void Form1_Load(object sender, EventArgs e)
         {
             browseExeBtn.Height = factorioExePath.Height;
-            
+            advancedSettingsToggleBtn.Appearance = Appearance.Button;
+            advancedSettingsToggleBtn.TextAlign = ContentAlignment.MiddleCenter;
+            advancedSettingsToggleBtn.MinimumSize = new Size(75, 23);
+            if (string.IsNullOrWhiteSpace(factorioExePath.Text)&&string.IsNullOrWhiteSpace(usernameTextBox.Text) && string.IsNullOrWhiteSpace(servernameTextBox.Text))
+            {
+                factorioExePath.Text = "Browse to Factorio.exe...";
+                usernameTextBox.Text = "Enter Username...";
+                servernameTextBox.Text = "Enter Servername...";
+            }
+
         }
 
         private void factorioExePath_Enter(object sender, EventArgs e)
@@ -77,6 +86,34 @@ namespace FactorioServerCreator
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
             {
                 usernameTextBox.Text = "Enter Username...";
+            }
+        }
+
+        private void advancedSettingsToggleBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (advancedSettingsToggleBtn.Checked == true)
+            {
+                advSettingsGroupBox.Enabled = true;
+            }
+            if (advancedSettingsToggleBtn.Checked == false)
+            {
+                advSettingsGroupBox.Enabled = false;
+            }
+        }
+
+        private void servernameTextBox_Enter(object sender, EventArgs e)
+        {
+            if (servernameTextBox.Text == "Enter Servername...")
+            {
+                servernameTextBox.Text = "";
+            }
+        }
+
+        private void servernameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(servernameTextBox.Text))
+            {
+                servernameTextBox.Text = "Enter Servername...";
             }
         }
     }
