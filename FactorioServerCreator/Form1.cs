@@ -48,6 +48,10 @@ namespace FactorioServerCreator
             advancedSettingsToggleBtn.Appearance = Appearance.Button;
             advancedSettingsToggleBtn.TextAlign = ContentAlignment.MiddleCenter;
             advancedSettingsToggleBtn.MinimumSize = new Size(75, 23);
+            allowedCommandsComboBox.SelectedIndex = 0;
+            uploadSlotsComboBox.SelectedIndex = 5;
+            uploadBandwidthComboBox.SelectedIndex = 0;
+            pauseGameComboBox.SelectedIndex = 0;
             if (string.IsNullOrWhiteSpace(factorioExePath.Text)&&string.IsNullOrWhiteSpace(usernameTextBox.Text) && string.IsNullOrWhiteSpace(servernameTextBox.Text))
             {
                 factorioExePath.Text = "Browse to Factorio.exe...";
@@ -115,6 +119,11 @@ namespace FactorioServerCreator
             {
                 servernameTextBox.Text = "Enter Servername...";
             }
+        }
+
+        private void maxPlayerTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
