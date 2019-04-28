@@ -37,6 +37,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.servSettingsPage = new System.Windows.Forms.TabPage();
             this.advSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.maxPlayerTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.autoSaveCheckBox = new System.Windows.Forms.CheckBox();
+            this.autoPauseCheckBox = new System.Windows.Forms.CheckBox();
+            this.pauseGameComboBox = new System.Windows.Forms.ComboBox();
+            this.pauseGameLabel = new System.Windows.Forms.Label();
+            this.uploadBandwidthComboBox = new System.Windows.Forms.ComboBox();
+            this.uploadSlotsComboBox = new System.Windows.Forms.ComboBox();
+            this.uploadBandwidthLabel = new System.Windows.Forms.Label();
+            this.uploadSlotLabel = new System.Windows.Forms.Label();
+            this.allowedCommandsComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.returningPlayerlimitCheckBox = new System.Windows.Forms.CheckBox();
+            this.userVerificationCheckBox = new System.Windows.Forms.CheckBox();
             this.advancedSettingsToggleBtn = new System.Windows.Forms.CheckBox();
             this.startServerBtn = new System.Windows.Forms.Button();
             this.gamePasswordGroupBox = new System.Windows.Forms.GroupBox();
@@ -52,20 +66,7 @@
             this.factorioExePath = new System.Windows.Forms.TextBox();
             this.mapSettingsPage = new System.Windows.Forms.TabPage();
             this.navigateToExe = new System.Windows.Forms.OpenFileDialog();
-            this.userVerificationCheckBox = new System.Windows.Forms.CheckBox();
-            this.returningPlayerlimitCheckBox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.allowedCommandsComboBox = new System.Windows.Forms.ComboBox();
-            this.uploadSlotLabel = new System.Windows.Forms.Label();
-            this.uploadBandwidthLabel = new System.Windows.Forms.Label();
-            this.uploadSlotsComboBox = new System.Windows.Forms.ComboBox();
-            this.uploadBandwidthComboBox = new System.Windows.Forms.ComboBox();
-            this.pauseGameLabel = new System.Windows.Forms.Label();
-            this.pauseGameComboBox = new System.Windows.Forms.ComboBox();
-            this.autoPauseCheckBox = new System.Windows.Forms.CheckBox();
-            this.autoSaveCheckBox = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.maxPlayerTextBox = new System.Windows.Forms.TextBox();
+            this.hintLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -172,6 +173,7 @@
             // servSettingsPage
             // 
             this.servSettingsPage.BackColor = System.Drawing.Color.White;
+            this.servSettingsPage.Controls.Add(this.hintLabel);
             this.servSettingsPage.Controls.Add(this.advSettingsGroupBox);
             this.servSettingsPage.Controls.Add(this.advancedSettingsToggleBtn);
             this.servSettingsPage.Controls.Add(this.startServerBtn);
@@ -214,6 +216,172 @@
             this.advSettingsGroupBox.TabIndex = 9;
             this.advSettingsGroupBox.TabStop = false;
             this.advSettingsGroupBox.Text = "Advanced Settings";
+            // 
+            // maxPlayerTextBox
+            // 
+            this.maxPlayerTextBox.Location = new System.Drawing.Point(79, 18);
+            this.maxPlayerTextBox.Name = "maxPlayerTextBox";
+            this.maxPlayerTextBox.Size = new System.Drawing.Size(52, 20);
+            this.maxPlayerTextBox.TabIndex = 14;
+            this.maxPlayerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maxPlayerTextBox_KeyPress);
+            this.maxPlayerTextBox.MouseLeave += new System.EventHandler(this.maxPlayerTextBox_MouseLeave);
+            this.maxPlayerTextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.maxPlayerTextBox_MouseMove);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Max. Players:";
+            // 
+            // autoSaveCheckBox
+            // 
+            this.autoSaveCheckBox.AutoSize = true;
+            this.autoSaveCheckBox.Checked = true;
+            this.autoSaveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSaveCheckBox.Location = new System.Drawing.Point(6, 113);
+            this.autoSaveCheckBox.Name = "autoSaveCheckBox";
+            this.autoSaveCheckBox.Size = new System.Drawing.Size(151, 17);
+            this.autoSaveCheckBox.TabIndex = 12;
+            this.autoSaveCheckBox.Text = "Auto Save Only On Server";
+            this.autoSaveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // autoPauseCheckBox
+            // 
+            this.autoPauseCheckBox.AutoSize = true;
+            this.autoPauseCheckBox.Checked = true;
+            this.autoPauseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoPauseCheckBox.Location = new System.Drawing.Point(6, 90);
+            this.autoPauseCheckBox.Name = "autoPauseCheckBox";
+            this.autoPauseCheckBox.Size = new System.Drawing.Size(81, 17);
+            this.autoPauseCheckBox.TabIndex = 11;
+            this.autoPauseCheckBox.Text = "Auto Pause";
+            this.autoPauseCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // pauseGameComboBox
+            // 
+            this.pauseGameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pauseGameComboBox.FormattingEnabled = true;
+            this.pauseGameComboBox.Items.AddRange(new object[] {
+            "Admins Only",
+            "Everyone"});
+            this.pauseGameComboBox.Location = new System.Drawing.Point(530, 94);
+            this.pauseGameComboBox.Name = "pauseGameComboBox";
+            this.pauseGameComboBox.Size = new System.Drawing.Size(98, 21);
+            this.pauseGameComboBox.TabIndex = 10;
+            // 
+            // pauseGameLabel
+            // 
+            this.pauseGameLabel.AutoSize = true;
+            this.pauseGameLabel.Location = new System.Drawing.Point(434, 97);
+            this.pauseGameLabel.Name = "pauseGameLabel";
+            this.pauseGameLabel.Size = new System.Drawing.Size(71, 13);
+            this.pauseGameLabel.TabIndex = 9;
+            this.pauseGameLabel.Text = "Pause Game:";
+            // 
+            // uploadBandwidthComboBox
+            // 
+            this.uploadBandwidthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uploadBandwidthComboBox.FormattingEnabled = true;
+            this.uploadBandwidthComboBox.Items.AddRange(new object[] {
+            "Unlimited",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500",
+            "1000",
+            "2000"});
+            this.uploadBandwidthComboBox.Location = new System.Drawing.Point(530, 67);
+            this.uploadBandwidthComboBox.Name = "uploadBandwidthComboBox";
+            this.uploadBandwidthComboBox.Size = new System.Drawing.Size(98, 21);
+            this.uploadBandwidthComboBox.TabIndex = 8;
+            // 
+            // uploadSlotsComboBox
+            // 
+            this.uploadSlotsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uploadSlotsComboBox.FormattingEnabled = true;
+            this.uploadSlotsComboBox.Items.AddRange(new object[] {
+            "Unlimited",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.uploadSlotsComboBox.Location = new System.Drawing.Point(530, 40);
+            this.uploadSlotsComboBox.Name = "uploadSlotsComboBox";
+            this.uploadSlotsComboBox.Size = new System.Drawing.Size(98, 21);
+            this.uploadSlotsComboBox.TabIndex = 7;
+            // 
+            // uploadBandwidthLabel
+            // 
+            this.uploadBandwidthLabel.AutoSize = true;
+            this.uploadBandwidthLabel.Location = new System.Drawing.Point(434, 70);
+            this.uploadBandwidthLabel.Name = "uploadBandwidthLabel";
+            this.uploadBandwidthLabel.Size = new System.Drawing.Size(94, 13);
+            this.uploadBandwidthLabel.TabIndex = 6;
+            this.uploadBandwidthLabel.Text = "Max Upload in kB:";
+            // 
+            // uploadSlotLabel
+            // 
+            this.uploadSlotLabel.AutoSize = true;
+            this.uploadSlotLabel.Location = new System.Drawing.Point(434, 43);
+            this.uploadSlotLabel.Name = "uploadSlotLabel";
+            this.uploadSlotLabel.Size = new System.Drawing.Size(96, 13);
+            this.uploadSlotLabel.TabIndex = 4;
+            this.uploadSlotLabel.Text = "Max. Upload Slots:";
+            // 
+            // allowedCommandsComboBox
+            // 
+            this.allowedCommandsComboBox.DisplayMember = "0";
+            this.allowedCommandsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.allowedCommandsComboBox.FormattingEnabled = true;
+            this.allowedCommandsComboBox.Items.AddRange(new object[] {
+            "Admins Only",
+            "True",
+            "False"});
+            this.allowedCommandsComboBox.Location = new System.Drawing.Point(530, 13);
+            this.allowedCommandsComboBox.Name = "allowedCommandsComboBox";
+            this.allowedCommandsComboBox.Size = new System.Drawing.Size(98, 21);
+            this.allowedCommandsComboBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(434, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Allow Commands:";
+            // 
+            // returningPlayerlimitCheckBox
+            // 
+            this.returningPlayerlimitCheckBox.AutoSize = true;
+            this.returningPlayerlimitCheckBox.Location = new System.Drawing.Point(6, 44);
+            this.returningPlayerlimitCheckBox.Name = "returningPlayerlimitCheckBox";
+            this.returningPlayerlimitCheckBox.Size = new System.Drawing.Size(216, 17);
+            this.returningPlayerlimitCheckBox.TabIndex = 1;
+            this.returningPlayerlimitCheckBox.Text = "Ignore Player Limit For Returning Players";
+            this.returningPlayerlimitCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // userVerificationCheckBox
+            // 
+            this.userVerificationCheckBox.AutoSize = true;
+            this.userVerificationCheckBox.Checked = true;
+            this.userVerificationCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.userVerificationCheckBox.Location = new System.Drawing.Point(6, 67);
+            this.userVerificationCheckBox.Name = "userVerificationCheckBox";
+            this.userVerificationCheckBox.Size = new System.Drawing.Size(143, 17);
+            this.userVerificationCheckBox.TabIndex = 0;
+            this.userVerificationCheckBox.Text = "Require User Verification";
+            this.userVerificationCheckBox.UseVisualStyleBackColor = true;
             // 
             // advancedSettingsToggleBtn
             // 
@@ -265,6 +433,7 @@
             this.saveBtn.TabIndex = 2;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // visibilityGroupBox
             // 
@@ -368,169 +537,15 @@
             this.navigateToExe.Filter = "Executable-Files|*.exe";
             this.navigateToExe.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // userVerificationCheckBox
+            // hintLabel
             // 
-            this.userVerificationCheckBox.AutoSize = true;
-            this.userVerificationCheckBox.Checked = true;
-            this.userVerificationCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.userVerificationCheckBox.Location = new System.Drawing.Point(6, 67);
-            this.userVerificationCheckBox.Name = "userVerificationCheckBox";
-            this.userVerificationCheckBox.Size = new System.Drawing.Size(143, 17);
-            this.userVerificationCheckBox.TabIndex = 0;
-            this.userVerificationCheckBox.Text = "Require User Verification";
-            this.userVerificationCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // returningPlayerlimitCheckBox
-            // 
-            this.returningPlayerlimitCheckBox.AutoSize = true;
-            this.returningPlayerlimitCheckBox.Location = new System.Drawing.Point(6, 44);
-            this.returningPlayerlimitCheckBox.Name = "returningPlayerlimitCheckBox";
-            this.returningPlayerlimitCheckBox.Size = new System.Drawing.Size(216, 17);
-            this.returningPlayerlimitCheckBox.TabIndex = 1;
-            this.returningPlayerlimitCheckBox.Text = "Ignore Player Limit For Returning Players";
-            this.returningPlayerlimitCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(434, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Allow Commands:";
-            // 
-            // allowedCommandsComboBox
-            // 
-            this.allowedCommandsComboBox.DisplayMember = "0";
-            this.allowedCommandsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.allowedCommandsComboBox.FormattingEnabled = true;
-            this.allowedCommandsComboBox.Items.AddRange(new object[] {
-            "Admins Only",
-            "True",
-            "False"});
-            this.allowedCommandsComboBox.Location = new System.Drawing.Point(530, 13);
-            this.allowedCommandsComboBox.Name = "allowedCommandsComboBox";
-            this.allowedCommandsComboBox.Size = new System.Drawing.Size(98, 21);
-            this.allowedCommandsComboBox.TabIndex = 3;
-            // 
-            // uploadSlotLabel
-            // 
-            this.uploadSlotLabel.AutoSize = true;
-            this.uploadSlotLabel.Location = new System.Drawing.Point(434, 43);
-            this.uploadSlotLabel.Name = "uploadSlotLabel";
-            this.uploadSlotLabel.Size = new System.Drawing.Size(96, 13);
-            this.uploadSlotLabel.TabIndex = 4;
-            this.uploadSlotLabel.Text = "Max. Upload Slots:";
-            // 
-            // uploadBandwidthLabel
-            // 
-            this.uploadBandwidthLabel.AutoSize = true;
-            this.uploadBandwidthLabel.Location = new System.Drawing.Point(434, 70);
-            this.uploadBandwidthLabel.Name = "uploadBandwidthLabel";
-            this.uploadBandwidthLabel.Size = new System.Drawing.Size(94, 13);
-            this.uploadBandwidthLabel.TabIndex = 6;
-            this.uploadBandwidthLabel.Text = "Max Upload in kB:";
-            // 
-            // uploadSlotsComboBox
-            // 
-            this.uploadSlotsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.uploadSlotsComboBox.FormattingEnabled = true;
-            this.uploadSlotsComboBox.Items.AddRange(new object[] {
-            "Unlimited",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.uploadSlotsComboBox.Location = new System.Drawing.Point(530, 40);
-            this.uploadSlotsComboBox.Name = "uploadSlotsComboBox";
-            this.uploadSlotsComboBox.Size = new System.Drawing.Size(98, 21);
-            this.uploadSlotsComboBox.TabIndex = 7;
-            // 
-            // uploadBandwidthComboBox
-            // 
-            this.uploadBandwidthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.uploadBandwidthComboBox.FormattingEnabled = true;
-            this.uploadBandwidthComboBox.Items.AddRange(new object[] {
-            "Unlimited",
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "1000",
-            "2000"});
-            this.uploadBandwidthComboBox.Location = new System.Drawing.Point(530, 67);
-            this.uploadBandwidthComboBox.Name = "uploadBandwidthComboBox";
-            this.uploadBandwidthComboBox.Size = new System.Drawing.Size(98, 21);
-            this.uploadBandwidthComboBox.TabIndex = 8;
-            // 
-            // pauseGameLabel
-            // 
-            this.pauseGameLabel.AutoSize = true;
-            this.pauseGameLabel.Location = new System.Drawing.Point(434, 97);
-            this.pauseGameLabel.Name = "pauseGameLabel";
-            this.pauseGameLabel.Size = new System.Drawing.Size(71, 13);
-            this.pauseGameLabel.TabIndex = 9;
-            this.pauseGameLabel.Text = "Pause Game:";
-            // 
-            // pauseGameComboBox
-            // 
-            this.pauseGameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pauseGameComboBox.FormattingEnabled = true;
-            this.pauseGameComboBox.Items.AddRange(new object[] {
-            "Admins Only",
-            "Everyone"});
-            this.pauseGameComboBox.Location = new System.Drawing.Point(530, 94);
-            this.pauseGameComboBox.Name = "pauseGameComboBox";
-            this.pauseGameComboBox.Size = new System.Drawing.Size(98, 21);
-            this.pauseGameComboBox.TabIndex = 10;
-            // 
-            // autoPauseCheckBox
-            // 
-            this.autoPauseCheckBox.AutoSize = true;
-            this.autoPauseCheckBox.Checked = true;
-            this.autoPauseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoPauseCheckBox.Location = new System.Drawing.Point(6, 90);
-            this.autoPauseCheckBox.Name = "autoPauseCheckBox";
-            this.autoPauseCheckBox.Size = new System.Drawing.Size(81, 17);
-            this.autoPauseCheckBox.TabIndex = 11;
-            this.autoPauseCheckBox.Text = "Auto Pause";
-            this.autoPauseCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // autoSaveCheckBox
-            // 
-            this.autoSaveCheckBox.AutoSize = true;
-            this.autoSaveCheckBox.Checked = true;
-            this.autoSaveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoSaveCheckBox.Location = new System.Drawing.Point(6, 113);
-            this.autoSaveCheckBox.Name = "autoSaveCheckBox";
-            this.autoSaveCheckBox.Size = new System.Drawing.Size(151, 17);
-            this.autoSaveCheckBox.TabIndex = 12;
-            this.autoSaveCheckBox.Text = "Auto Save Only On Server";
-            this.autoSaveCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Max. Players:";
-            // 
-            // maxPlayerTextBox
-            // 
-            this.maxPlayerTextBox.Location = new System.Drawing.Point(79, 18);
-            this.maxPlayerTextBox.Name = "maxPlayerTextBox";
-            this.maxPlayerTextBox.Size = new System.Drawing.Size(52, 20);
-            this.maxPlayerTextBox.TabIndex = 14;
-            this.maxPlayerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maxPlayerTextBox_KeyPress);
+            this.hintLabel.AutoSize = true;
+            this.hintLabel.ForeColor = System.Drawing.Color.Green;
+            this.hintLabel.Location = new System.Drawing.Point(108, 524);
+            this.hintLabel.Name = "hintLabel";
+            this.hintLabel.Size = new System.Drawing.Size(0, 13);
+            this.hintLabel.TabIndex = 15;
+            this.hintLabel.Visible = false;
             // 
             // Form1
             // 
@@ -602,6 +617,7 @@
         private System.Windows.Forms.CheckBox autoSaveCheckBox;
         private System.Windows.Forms.TextBox maxPlayerTextBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label hintLabel;
     }
 }
 

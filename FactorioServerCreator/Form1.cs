@@ -52,6 +52,7 @@ namespace FactorioServerCreator
             uploadSlotsComboBox.SelectedIndex = 5;
             uploadBandwidthComboBox.SelectedIndex = 0;
             pauseGameComboBox.SelectedIndex = 0;
+            maxPlayerTextBox.Text = "0";
             if (string.IsNullOrWhiteSpace(factorioExePath.Text)&&string.IsNullOrWhiteSpace(usernameTextBox.Text) && string.IsNullOrWhiteSpace(servernameTextBox.Text))
             {
                 factorioExePath.Text = "Browse to Factorio.exe...";
@@ -124,6 +125,39 @@ namespace FactorioServerCreator
         private void maxPlayerTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if(factorioExePath.Text.IndexOf("factorio.exe", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && !factorioExePath.Text.Contains("Factorio.exe..."))
+            {
+                if(factorioExePath.BackColor == Color.Red)
+                {
+                    factorioExePath.BackColor = Color.White;
+                }
+                //save settings to file (create file if necessary)
+            }
+            else
+            {
+                factorioExePath.BackColor = Color.Red;
+            }
+        }
+
+        private void createServerFile()
+        {
+            //check if file exists
+        }
+
+        private void maxPlayerTextBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            hintLabel.Visible = true;
+            hintLabel.Text = "0 means unlimited";
+        }
+
+        private void maxPlayerTextBox_MouseLeave(object sender, EventArgs e)
+        {
+            hintLabel.Visible = false;
+            hintLabel.Text = "";
         }
     }
 }
